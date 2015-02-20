@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="codeitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="int" Nullable="false" />
+          <Property Name="cityName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Emp">
+          <Key>
+            <PropertyRef Name="Empid" />
+          </Key>
+          <Property Name="Empid" Type="int" Nullable="false" />
+          <Property Name="Empname" Type="varchar" MaxLength="50" />
+          <Property Name="Sal" Type="money" />
+          <Property Name="Location" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="codeitModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp" EntityType="Self.Emp" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="codeitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Emp">
+          <Key>
+            <PropertyRef Name="Empid" />
+          </Key>
+          <Property Name="Empid" Type="Int32" Nullable="false" />
+          <Property Name="Empname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="codeitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Emps" EntityType="Self.Emp" />
+          <EntitySet Name="Cities" EntityType="codeitModel.City" />
+        </EntityContainer>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="Int32" Nullable="false" />
+          <Property Name="cityName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="codeitModelStoreContainer" CdmEntityContainer="codeitEntities">
+          <EntitySetMapping Name="Emps">
+            <EntityTypeMapping TypeName="codeitModel.Emp">
+              <MappingFragment StoreEntitySet="Emp">
+                <ScalarProperty Name="Empid" ColumnName="Empid" />
+                <ScalarProperty Name="Empname" ColumnName="Empname" />
+                <ScalarProperty Name="Sal" ColumnName="Sal" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="codeitModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

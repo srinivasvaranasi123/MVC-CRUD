@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="codeitModelStoreContainer" CdmEntityContainer="codeitEntities">
+    <EntitySetMapping Name="Emps">
+      <EntityTypeMapping TypeName="codeitModel.Emp">
+        <MappingFragment StoreEntitySet="Emp">
+          <ScalarProperty Name="Empid" ColumnName="Empid" />
+          <ScalarProperty Name="Empname" ColumnName="Empname" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="codeitModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

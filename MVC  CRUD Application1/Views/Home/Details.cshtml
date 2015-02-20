@@ -1,0 +1,37 @@
+﻿@model MVC__CRUD_Application1.Models.Emp
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Emp</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Empname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Empname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Empid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

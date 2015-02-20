@@ -1,0 +1,36 @@
+﻿@model MVC__CRUD_Application1.Models.City
+
+@{
+    ViewBag.Title = "AddCity";
+}
+
+<h2>AddCity</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>City</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cityName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cityName)
+            @Html.ValidationMessageFor(model => model.cityName)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
